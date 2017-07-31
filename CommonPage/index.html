@@ -30,7 +30,7 @@
                 };
                 addLog(JSON.stringify(requestCon));
                 addLog('CallNativeToast:');
-                window.njfy.nativeCalled(requestCon);
+                window.njfy.nativeCalled(JSON.stringify(requestCon));
                 // addLog($.toJSON(requestCon));
             });          
             $('#member').on('click', function () {
