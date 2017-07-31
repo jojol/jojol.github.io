@@ -1,7 +1,7 @@
 body {
   background-color: rgb(255, 255, 255);
   font: 400 1em/1.38 Helvetica;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
 }
 
 .text {
@@ -50,15 +50,20 @@ body {
   clear: both;
   width: 80%;
   min-height: 500px;
-  margin: 81px 0 0 9.3229166666%;
+  margin: 51px 0 0 10%;
+  border: 1px solid rgb(119, 119, 119);
   background-color: rgba(255, 255, 255, 0);
   color: rgb(48, 48, 48);
 }
 
 ._button-1 {
-  margin-top: 66px;
+  margin-top: 29px;
 }
 
 ._button-2 {
-  margin-top: 37px;
+  margin-top: 35px;
+}
+
+._button-3 {
+  margin-top: 40px;
 }

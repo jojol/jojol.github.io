@@ -7,17 +7,17 @@
   <link rel="stylesheet" href="css/standardize.css">
   <link rel="stylesheet" href="css/index-grid.css">
   <link rel="stylesheet" href="css/index.css">
-  
 </head>
 <body class="body page-index clearfix">
   <p class="text text-1">原生 &nbsp;javaScript &nbsp;互调Demo</p>
   <button id="toast" class="_button _button-1">CallNativeToast</button>
-  <button id="member" class="_button _button-2">CallNativeAddMember</button>
+  <button id="userToken" class="_button _button-2 js-test-var" type="button">CallNativeUserToken</button>
+  <button id="member" class="_button _button-3">CallNativeAddMember</button>
   <p id="log" class="text text-2">logcon</p>
 
  <script src="js/jquery-min.js"></script>
   <script type="text/javascript">
-    
+
         $(function ($) {
             $('#toast').on('click', function () {
                 var requestCon = {
@@ -31,12 +31,33 @@
                 addLog(JSON.stringify(requestCon));
                 addLog('CallNativeToast:');
                 window.njfy.nativeCalled(JSON.stringify(requestCon));
-                // addLog($.toJSON(requestCon));
-            });          
+            });
             $('#member').on('click', function () {
-                addLog('CallNativeAddMember');
-            });    
-            //refreshTab(1);  
+                var requestCon = {
+                  actionType:'addMember',
+                  uid:'123456',
+                  hospitalId:'1',
+                  data:{
+                    message:'add member',
+                  }
+                };
+                addLog(JSON.stringify(requestCon));
+                addLog('CallNativeAddMember:');
+                window.njfy.nativeCalled(JSON.stringify(requestCon));
+            });
+            $('#userToken').on('click', function () {
+                var requestCon = {
+                  actionType:'userToken',
+                  uid:'123456',
+                  hospitalId:'1',
+                  data:{
+                    message:'user token',
+                  }
+                };
+                addLog(JSON.stringify(requestCon));
+                addLog('CallNativeUserToken:');
+                window.njfy.nativeCalled(JSON.stringify(requestCon));
+            });
         });
         function refreshLog(){
           $("#log").html("");
