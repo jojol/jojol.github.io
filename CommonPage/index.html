@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0">
+  <title>index</title>
+  <link rel="stylesheet" href="css/standardize.css">
+  <link rel="stylesheet" href="css/index-grid.css">
+  <link rel="stylesheet" href="css/index.css">
+  
+</head>
+<body class="body page-index clearfix">
+  <p class="text text-1">原生 &nbsp;javaScript &nbsp;互调Demo</p>
+  <button id="toast" class="_button _button-1">CallNativeToast</button>
+  <button id="member" class="_button _button-2">CallNativeAddMember</button>
+  <p id="log" class="text text-2">logcon</p>
+
+ <script src="js/jquery-min.js"></script>
+  <script type="text/javascript">
+    
+        $(function ($) {
+            $('#toast').on('click', function () {
+                var requestCon = {
+                  actionType:'toast',
+                  uid:'123456',
+                  hospitalId:'1',
+                  data:{
+                    message:'javascript toast',
+                  }
+                };
+                addLog(JSON.stringify(requestCon));
+                addLog('CallNativeToast:');
+                window.njfy.nativeCalled(requestCon);
+                // addLog($.toJSON(requestCon));
+            });          
+            $('#member').on('click', function () {
+                addLog('CallNativeAddMember');
+            });    
+            //refreshTab(1);  
+        });
+        function refreshLog(){
+          $("#log").html("");
+            // document.getElementById('log').html("修改成的内容");
+        }
+
+        function addLog(mes){
+          $("#log").html(mes + '<br /> ' +$("#log").html());
+        }
+
+
+        function nativeCallBack(responseCon){
+          addLog(responseCon);
+          alert(responseCon);
+        }
+  </script>
+</body>
+</html>

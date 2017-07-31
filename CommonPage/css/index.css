@@ -1,0 +1,64 @@
+body {
+  background-color: rgb(255, 255, 255);
+  font: 400 1em/1.38 Helvetica;
+  color: rgb(0, 0, 0);
+}
+
+.text {
+  font-size: 1em;
+}
+
+._button {
+  display: block;
+  float: left;
+  clear: both;
+  width: 60%;
+  height: 64px;
+  margin-left: 20%;
+  border: 1px solid rgb(16, 115, 255);
+  border-radius: 3px;
+  background-color: rgb(39, 148, 255);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .5);
+  font-size: 1em;
+  text-align: center;
+  color: rgb(255, 255, 255);
+}
+
+._button:hover {
+  background-color: rgb(64, 159, 253);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .5);
+}
+
+._button:active {
+  background-color: rgb(58, 155, 251);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .5);
+}
+
+._button:focus {
+  background-color: rgb(8, 126, 243);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .5);
+}
+
+.text-1 {
+  margin: 60px auto 0;
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+
+.text-2 {
+  float: left;
+  clear: both;
+  width: 80%;
+  min-height: 500px;
+  margin: 81px 0 0 9.3229166666%;
+  background-color: rgba(255, 255, 255, 0);
+  color: rgb(48, 48, 48);
+}
+
+._button-1 {
+  margin-top: 66px;
+}
+
+._button-2 {
+  margin-top: 37px;
+}
