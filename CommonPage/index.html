@@ -12,8 +12,12 @@
   <p class="text text-1">原生 &nbsp;javaScript &nbsp;互调Demo</p>
   <button id="toast" class="_button _button-1">CallNativeToast</button>
   <button id="userToken" class="_button _button-2 js-test-var" type="button">CallNativeUserToken</button>
-  <button id="member" class="_button _button-3">CallNativeAddMember</button>
+  <button id="addMember" class="_button _button-3">CallNativeAddMember</button>
+  <button id="selectMum" class="_button _button-4 js-test-var" type="button">CallNativeSelectMum</button>
+  <button id="selectCom" class="_button _button-5 js-test-var" type="button">CallNativeSelectCom</button>
+  <button id="memberManage" class="_button _button-6 js-test-var" type="button">CallNativeMemberManager</button>
   <p id="log" class="text text-2">logcon</p>
+
 
  <script src="js/jquery-min.js"></script>
   <script type="text/javascript">
@@ -22,7 +26,7 @@
             $('#toast').on('click', function () {
                 var requestCon = {
                   actionType:'toast',
-                  uid:'123456',
+                  uid:'e925f708e1794adba761071fe4e67b22',
                   hospitalId:'1',
                   data:{
                     message:'javascript toast',
@@ -32,10 +36,10 @@
                 addLog('CallNativeToast:');
                 window.njfy.nativeCalled(JSON.stringify(requestCon));
             });
-            $('#member').on('click', function () {
+            $('#addMember').on('click', function () {
                 var requestCon = {
                   actionType:'addMember',
-                  uid:'123456',
+                  uid:'e925f708e1794adba761071fe4e67b22',
                   hospitalId:'1',
                   data:{
                     message:'add member',
@@ -48,7 +52,7 @@
             $('#userToken').on('click', function () {
                 var requestCon = {
                   actionType:'userToken',
-                  uid:'123456',
+                  uid:'e925f708e1794adba761071fe4e67b22',
                   hospitalId:'1',
                   data:{
                     message:'user token',
@@ -56,6 +60,50 @@
                 };
                 addLog(JSON.stringify(requestCon));
                 addLog('CallNativeUserToken:');
+                window.njfy.nativeCalled(JSON.stringify(requestCon));
+            });
+
+            $('#selectMum').on('click', function () {
+                var requestCon = {
+                  actionType:'selectMember',
+                  uid:'e925f708e1794adba761071fe4e67b22',
+                  hospitalId:'1',
+                  data:{
+                  	selectMode:0,
+                    message:'select Memeber',
+                  }
+                };
+                addLog(JSON.stringify(requestCon));
+                addLog('CallNativeSelectMum:');
+                window.njfy.nativeCalled(JSON.stringify(requestCon));
+            });
+            $('#selectCom').on('click', function () {
+                var requestCon = {
+                  actionType:'selectMember',
+                  uid:'e925f708e1794adba761071fe4e67b22',
+                  hospitalId:'1',
+                  data:{
+                  	selectMode:1,
+                    message:'select Memeber',
+                  }
+                };
+                addLog(JSON.stringify(requestCon));
+                addLog('CallNativeSelectCom:');
+                window.njfy.nativeCalled(JSON.stringify(requestCon));
+            });
+
+            $('#memberManage').on('click', function () {
+                var requestCon = {
+                  actionType:'selectMember',
+                  uid:'e925f708e1794adba761071fe4e67b22',
+                  hospitalId:'1',
+                  data:{
+                  	selectMode:2,
+                    message:'select Memeber',
+                  }
+                };
+                addLog(JSON.stringify(requestCon));
+                addLog('CallNativeSelectCom:');
                 window.njfy.nativeCalled(JSON.stringify(requestCon));
             });
         });

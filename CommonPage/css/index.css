@@ -10,11 +10,9 @@ body {
 
 ._button {
   display: block;
+  position: relative;
   float: left;
-  clear: both;
-  width: 60%;
   height: 64px;
-  margin-left: 20%;
   border: 1px solid rgb(16, 115, 255);
   border-radius: 3px;
   background-color: rgb(39, 148, 255);
@@ -50,20 +48,47 @@ body {
   clear: both;
   width: 80%;
   min-height: 500px;
-  margin: 51px 0 0 10%;
+  margin: 40px 0 0 10%;
   border: 1px solid rgb(119, 119, 119);
   background-color: rgba(255, 255, 255, 0);
   color: rgb(48, 48, 48);
 }
 
 ._button-1 {
-  margin-top: 29px;
+  clear: both;
+  z-index: 1;
+  width: 39.1666666666%;
+  margin: 29px 0 0 10%;
 }
 
 ._button-2 {
-  margin-top: 35px;
+  z-index: 4;
+  width: 38.8333333333%;
+  margin: 29px 0 0 1.63021%;
 }
 
 ._button-3 {
-  margin-top: 40px;
+  clear: both;
+  z-index: 3;
+  width: 39.1666666666%;
+  margin: 25px 0 0 10%;
+}
+
+._button-4 {
+  z-index: 5;
+  width: 38.8333333333%;
+  margin: 25px 0 0 1.63021%;
+}
+
+._button-5 {
+  clear: both;
+  z-index: 6;
+  width: 38.8333333333%;
+  margin: 24px 0 0 10%;
+}
+
+._button-6 {
+  z-index: 7;
+  width: 38.8333333333%;
+  margin: 24px 0 0 1.96094%;
 }
