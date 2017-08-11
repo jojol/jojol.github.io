@@ -16,6 +16,9 @@
   <button id="selectMum" class="_button _button-4 js-test-var" type="button">CallNativeSelectMum</button>
   <button id="selectCom" class="_button _button-5 js-test-var" type="button">CallNativeSelectCom</button>
   <button id="memberManage" class="_button _button-6 js-test-var" type="button">CallNativeMemberManager</button>
+  <button id="exitBrowser" class="_button _button-7 js-test-var" type="button">CallExitBrowser</button>
+  <input id="selectPic1" class="_button _button-8 js-test-var" type="file" accept="image/*" >SelectPic1</input>
+  <input id="selectPic2" class="_button _button-9 js-test-var" type="file" accept="image/*" >SelectPic2</input>
   <p id="log" class="text text-2">logcon</p>
 
 
@@ -23,6 +26,18 @@
   <script type="text/javascript">
 
         $(function ($) {
+            $('#exitBrowser').on('click', function () {
+                var requestCon = {
+                  actionType:'exitBrowser',
+                  hospitalId:'1',
+                  data:{
+                    message:'exit browser',
+                  }
+                };
+                addLog(JSON.stringify(requestCon));
+                addLog('CallNativeToast:');
+                window.njfy.nativeCalled(JSON.stringify(requestCon));
+            });
             $('#toast').on('click', function () {
                 var requestCon = {
                   actionType:'toast',
