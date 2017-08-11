@@ -4,13 +4,25 @@ body {
   color: rgb(255, 255, 255);
 }
 
+.image {
+  display: block;
+  float: left;
+  clear: both;
+  width: 160px;
+  height: auto;
+  margin: 12px 0 0 50.8333333333%;
+  overflow: hidden;
+}
+
 .text {
   font-size: 1em;
 }
 
 ._button {
   display: block;
+  position: relative;
   float: left;
+  height: 64px;
   border: 1px solid rgb(16, 115, 255);
   border-radius: 3px;
   background-color: rgb(39, 148, 255);
@@ -46,83 +58,60 @@ body {
   clear: both;
   width: 80%;
   min-height: 500px;
-  margin: 30px 0 0 10%;
+  margin: 27px 0 0 10%;
   border: 1px solid rgb(119, 119, 119);
   background-color: rgba(255, 255, 255, 0);
   color: rgb(48, 48, 48);
 }
 
 ._button-1 {
-  position: relative;
   clear: both;
   z-index: 1;
   width: 39.1666666666%;
-  height: 64px;
   margin: 29px 0 0 10%;
 }
 
 ._button-2 {
-  position: relative;
   z-index: 4;
   width: 38.8333333333%;
-  height: 64px;
   margin: 29px 0 0 1.63021%;
 }
 
 ._button-3 {
-  position: relative;
   clear: both;
   z-index: 3;
   width: 39.1666666666%;
-  height: 64px;
   margin: 25px 0 0 10%;
 }
 
 ._button-4 {
-  position: relative;
   z-index: 5;
   width: 38.8333333333%;
-  height: 64px;
   margin: 25px 0 0 1.63021%;
 }
 
 ._button-5 {
-  position: relative;
   clear: both;
   z-index: 6;
   width: 38.8333333333%;
-  height: 64px;
   margin: 24px 0 0 10%;
 }
 
 ._button-6 {
-  position: relative;
   z-index: 7;
   width: 38.8333333333%;
-  height: 64px;
   margin: 24px 0 0 1.96094%;
 }
 
 ._button-7 {
   clear: both;
+  z-index: 8;
   width: 38.8333333333%;
-  height: 64px;
   margin: 27px 0 0 10%;
 }
 
 ._button-8 {
-  position: relative;
-  clear: both;
-  z-index: 10;
-  width: 27.1666666666%;
-  height: 146px;
-  margin: 22px 0 0 10%;
-}
-
-._button-9 {
-  position: relative;
   z-index: 9;
-  width: 27.3333333333%;
-  height: 146px;
-  margin: 22px 0 0 5.16667%;
+  width: 38.8333333333%;
+  margin: 27px 0 0 2%;
 }

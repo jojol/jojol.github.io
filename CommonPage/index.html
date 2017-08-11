@@ -17,13 +17,28 @@
   <button id="selectCom" class="_button _button-5 js-test-var" type="button">CallNativeSelectCom</button>
   <button id="memberManage" class="_button _button-6 js-test-var" type="button">CallNativeMemberManager</button>
   <button id="exitBrowser" class="_button _button-7 js-test-var" type="button">CallExitBrowser</button>
-  <input id="selectPic1" class="_button _button-8 js-test-var" type="file" accept="image/*" >SelectPic1</input>
-  <input id="selectPic2" class="_button _button-9 js-test-var" type="file" accept="image/*" >SelectPic2</input>
+  <input id="selectPic" class="_button _button-8 js-test-var" type="file" accept="image/*" onchange="readAsDataURL()">selectPic</input>
+  <img id="picPreView" class="image" src="images/loading_empty.png">
   <p id="log" class="text text-2">logcon</p>
 
 
  <script src="js/jquery-min.js"></script>
   <script type="text/javascript">
+        function readAsDataURL(){
+              // 检查是否为图像类型
+              var simpleFile = document.getElementById("selectPic").files[0];
+              if(!/image\/\w+/.test(simpleFile.type)) {
+                  alert("请确保文件类型为图像类型");
+                  return false;
+              }
+              var reader = new FileReader();
+              // 将文件以Data URL形式进行读入页面
+              reader.readAsDataURL(simpleFile);
+              reader.onload = function(e){
+                  console.log(this.result);
+                  document.getElementById('picPreView').src=this.result;
+              }
+        }
 
         $(function ($) {
             $('#exitBrowser').on('click', function () {
