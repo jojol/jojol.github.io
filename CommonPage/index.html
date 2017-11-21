@@ -22,155 +22,157 @@
   <p id="log" class="text text-2">logcon</p>
 
 
- <script src="js/jquery-min.js"></script>
-  <script type="text/javascript">
-        function readAsDataURL(){
-              // 检查是否为图像类型
-              var simpleFile = document.getElementById("selectPic").files[0];
-              if(!/image\/\w+/.test(simpleFile.type)) {
-                  alert("请确保文件类型为图像类型");
-                  return false;
+</body>
+
+<script src="js/jquery-min.js"></script>
+<script type="text/javascript">
+
+ //    document.addEventListener('message', function(e) {
+ //    	addLog(e.data);
+ //      	alert(confirm(responseCon));
+	// });
+	console.log('addEventListener');
+	window.document.addEventListener('message', function (e) {
+	    addLog(e.data);
+	});
+    function readAsDataURL(){
+          // 检查是否为图像类型
+          var simpleFile = document.getElementById("selectPic").files[0];
+          if(!/image\/\w+/.test(simpleFile.type)) {
+              alert("请确保文件类型为图像类型");
+              return false;
+          }
+          var reader = new FileReader();
+          // 将文件以Data URL形式进行读入页面
+          reader.readAsDataURL(simpleFile);
+          reader.onload = function(e){
+              console.log(this.result);
+              document.getElementById('picPreView').src=this.result;
+          }
+    }
+
+    $(function ($) {
+        $('#exitBrowser').on('click', function () {
+            var requestCon = {
+              actionType:'exitBrowser',
+              hospitalId:'1',
+              data:{
+                message:'exit browser',
               }
-              var reader = new FileReader();
-              // 将文件以Data URL形式进行读入页面
-              reader.readAsDataURL(simpleFile);
-              reader.onload = function(e){
-                  console.log(this.result);
-                  document.getElementById('picPreView').src=this.result;
+            };
+            addLog(JSON.stringify(requestCon));
+            addLog('CallNativeToast:');
+            window.postMessage(JSON.stringify(requestCon));
+        });
+        $('#toast').on('click', function () {
+            var requestCon = {
+              actionType:'toast',
+              hospitalId:'1',
+              data:{
+                message:'javascript toast',
               }
-        }
-
-        $(function ($) {
-            $('#exitBrowser').on('click', function () {
-                var requestCon = {
-                  actionType:'exitBrowser',
-                  hospitalId:'1',
-                  data:{
-                    message:'exit browser',
-                  }
-                };
-                addLog(JSON.stringify(requestCon));
-                addLog('CallNativeToast:');
-                window.postMessage(JSON.stringify(requestCon));
-            });
-            $('#toast').on('click', function () {
-                var requestCon = {
-                  actionType:'toast',
-                  hospitalId:'1',
-                  data:{
-                    message:'javascript toast',
-                  }
-                };
-                addLog(JSON.stringify(requestCon));
-                addLog('CallNativeToast:');
-                window.postMessage(JSON.stringify(requestCon));
-            });
-            $('#addMember').on('click', function () {
-                var requestCon = {
-                  actionType:'addMember',
-                  uid:'e925f708e1794adba761071fe4e67b22',
-                  hospitalId:'1',
-                  data:{
-                    message:'add member',
-                  }
-                };
-                addLog(JSON.stringify(requestCon));
-                addLog('CallNativeAddMember:');
-                window.postMessage(JSON.stringify(requestCon));
-            });
-            $('#userToken').on('click', function () {
-                var requestCon = {
-                  actionType:'userToken',
-                  hospitalId:'1',
-                  data:{
-                    message:'user token',
-                  }
-                };
-                addLog(JSON.stringify(requestCon));
-                addLog('CallNativeUserToken:');
-                window.postMessage(JSON.stringify(requestCon));
-            });
-
-            $('#selectMum').on('click', function () {
-                var requestCon = {
-                  actionType:'selectMember',
-                  uid:'e925f708e1794adba761071fe4e67b22',
-                  hospitalId:'1',
-                  data:{
-                  	selectMode:0,
-                    message:'select Memeber',
-                  }
-                };
-                addLog(JSON.stringify(requestCon));
-                addLog('CallNativeSelectMum:');
-                window.postMessage(JSON.stringify(requestCon));
-            });
-            $('#selectCom').on('click', function () {
-                var requestCon = {
-                  actionType:'selectMember',
-                  uid:'e925f708e1794adba761071fe4e67b22',
-                  hospitalId:'1',
-                  data:{
-                  	selectMode:1,
-                    message:'select Memeber',
-                  }
-                };
-                addLog(JSON.stringify(requestCon));
-                addLog('CallNativeSelectCom:');
-                window.postMessage(JSON.stringify(requestCon));
-            });
-
-            $('#memberManage').on('click', function () {
-          		alert(confirm('memberManage'));
-                // var requestCon = {
-                //   actionType:'selectMember',
-                //   uid:'e925f708e1794adba761071fe4e67b22',
-                //   hospitalId:'1',
-                //   data:{
-                //   	selectMode:2,
-                //     message:'select Memeber',
-                //   }
-                // };
-                // addLog(JSON.stringify(requestCon));
-                // addLog('CallNativeSelectCom:');
-                // window.postMessage(JSON.stringify(requestCon));
-            });
+            };
+            addLog(JSON.stringify(requestCon));
+            addLog('CallNativeToast:');
+            window.postMessage(JSON.stringify(requestCon));
+        });
+        $('#addMember').on('click', function () {
+            var requestCon = {
+              actionType:'addMember',
+              uid:'e925f708e1794adba761071fe4e67b22',
+              hospitalId:'1',
+              data:{
+                message:'add member',
+              }
+            };
+            addLog(JSON.stringify(requestCon));
+            addLog('CallNativeAddMember:');
+            window.postMessage(JSON.stringify(requestCon));
+        });
+        $('#userToken').on('click', function () {
+            var requestCon = {
+              actionType:'userToken',
+              hospitalId:'1',
+              data:{
+                message:'user token',
+              }
+            };
+            addLog(JSON.stringify(requestCon));
+            addLog('CallNativeUserToken:');
+            window.postMessage(JSON.stringify(requestCon));
         });
 
-     //    document.addEventListener('message', function(e) {
-     //    	addLog(e.data);
-     //      	alert(confirm(responseCon));
-    	// });
-    	window.document.addEventListener('message', function (e) {
-		    addLog(e.data);
-		});
+        $('#selectMum').on('click', function () {
+            var requestCon = {
+              actionType:'selectMember',
+              uid:'e925f708e1794adba761071fe4e67b22',
+              hospitalId:'1',
+              data:{
+              	selectMode:0,
+                message:'select Memeber',
+              }
+            };
+            addLog(JSON.stringify(requestCon));
+            addLog('CallNativeSelectMum:');
+            window.postMessage(JSON.stringify(requestCon));
+        });
+        $('#selectCom').on('click', function () {
+            var requestCon = {
+              actionType:'selectMember',
+              uid:'e925f708e1794adba761071fe4e67b22',
+              hospitalId:'1',
+              data:{
+              	selectMode:1,
+                message:'select Memeber',
+              }
+            };
+            addLog(JSON.stringify(requestCon));
+            addLog('CallNativeSelectCom:');
+            window.postMessage(JSON.stringify(requestCon));
+        });
 
-        function refreshLog(){
-          $("#log").html("");
-            // document.getElementById('log').html("修改成的内容");
-        }
+        $('#memberManage').on('click', function () {
+      		alert(confirm('memberManage'));
+            // var requestCon = {
+            //   actionType:'selectMember',
+            //   uid:'e925f708e1794adba761071fe4e67b22',
+            //   hospitalId:'1',
+            //   data:{
+            //   	selectMode:2,
+            //     message:'select Memeber',
+            //   }
+            // };
+            // addLog(JSON.stringify(requestCon));
+            // addLog('CallNativeSelectCom:');
+            // window.postMessage(JSON.stringify(requestCon));
+        });
+    });
 
-        function addLog(mes){
-          $("#log").html(mes + '<br /> ' +$("#log").html());
-        }
+    function refreshLog(){
+      $("#log").html("");
+        // document.getElementById('log').html("修改成的内容");
+    }
 
-        function rnCallBack2(responseCon){
-          addLog(responseCon);
-        }
+    function addLog(mes){
+      $("#log").html(mes + '<br /> ' +$("#log").html());
+    }
 
-        function rnCallBack(responseCon){
-          addLog(responseCon);
-          alert(confirm(responseCon));
-        }
-        window.nativeCallBack = function(responseCon){
-          addLog(responseCon);
-          alert(confirm(responseCon));
-        }
+    function rnCallBack2(responseCon){
+      addLog(responseCon);
+    }
 
-        document.nativeCallBack = function(responseCon){
-          addLog(responseCon);
-          alert(confirm(responseCon));
-        }
-  </script>
-</body>
+    function rnCallBack(responseCon){
+      addLog(responseCon);
+      alert(confirm(responseCon));
+    }
+    window.nativeCallBack = function(responseCon){
+      addLog(responseCon);
+      alert(confirm(responseCon));
+    }
+
+    document.nativeCallBack = function(responseCon){
+      addLog(responseCon);
+      alert(confirm(responseCon));
+    }
+</script>
 </html>
