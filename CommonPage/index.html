@@ -121,18 +121,19 @@
             });
 
             $('#memberManage').on('click', function () {
-                var requestCon = {
-                  actionType:'selectMember',
-                  uid:'e925f708e1794adba761071fe4e67b22',
-                  hospitalId:'1',
-                  data:{
-                  	selectMode:2,
-                    message:'select Memeber',
-                  }
-                };
-                addLog(JSON.stringify(requestCon));
-                addLog('CallNativeSelectCom:');
-                window.postMessage(JSON.stringify(requestCon));
+          		alert(confirm('memberManage'));
+                // var requestCon = {
+                //   actionType:'selectMember',
+                //   uid:'e925f708e1794adba761071fe4e67b22',
+                //   hospitalId:'1',
+                //   data:{
+                //   	selectMode:2,
+                //     message:'select Memeber',
+                //   }
+                // };
+                // addLog(JSON.stringify(requestCon));
+                // addLog('CallNativeSelectCom:');
+                // window.postMessage(JSON.stringify(requestCon));
             });
         });
         function refreshLog(){
@@ -144,6 +145,9 @@
           $("#log").html(mes + '<br /> ' +$("#log").html());
         }
 
+        function rnCallBack2(responseCon){
+          addLog(responseCon);
+        }
 
         function rnCallBack(responseCon){
           addLog(responseCon);
