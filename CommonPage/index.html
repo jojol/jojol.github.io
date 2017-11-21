@@ -145,7 +145,16 @@
         }
 
 
-        function nativeCallBack(responseCon){
+        function rnCallBack(responseCon){
+          addLog(responseCon);
+          alert(confirm(responseCon));
+        }
+        window.nativeCallBack = (responseCon){
+          addLog(responseCon);
+          alert(confirm(responseCon));
+        }
+
+        document.nativeCallBack = (responseCon){
           addLog(responseCon);
           alert(confirm(responseCon));
         }
