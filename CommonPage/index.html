@@ -149,12 +149,12 @@
           addLog(responseCon);
           alert(confirm(responseCon));
         }
-        window.nativeCallBack = (responseCon){
+        window.nativeCallBack = function(responseCon){
           addLog(responseCon);
           alert(confirm(responseCon));
         }
 
-        document.nativeCallBack = (responseCon){
+        document.nativeCallBack = function(responseCon){
           addLog(responseCon);
           alert(confirm(responseCon));
         }
