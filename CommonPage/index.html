@@ -29,13 +29,27 @@
 
     document.addEventListener('message', function(e) {
     	addLog(e.data+'document');
-      	alert('responseConD');
+      	rnToast('responseConD'+e.data);
 	});
-	console.log('addEventListener');
+
 	window.addEventListener('message', function (e) {
 	    addLog(e.data+'window');
-      	alert('responseConW');
+      	rnToast('responseConW'+e.data);
 	});
+
+    function rnToast(message='webPage call toast'){
+	    var requestCon = {
+	        actionType:'toast',
+	        hospitalId:'1',
+	        data:{
+	          message:'javascript toast',
+	        }
+	    };
+        addLog(JSON.stringify(requestCon));
+        addLog('CallNativeToast:');
+        window.postMessage(JSON.stringify(requestCon));
+    }
+
     function readAsDataURL(){
           // 检查是否为图像类型
           var simpleFile = document.getElementById("selectPic").files[0];
@@ -65,18 +79,7 @@
             addLog('CallNativeToast:');
             window.postMessage(JSON.stringify(requestCon));
         });
-        $('#toast').on('click', function () {
-            var requestCon = {
-              actionType:'toast',
-              hospitalId:'1',
-              data:{
-                message:'javascript toast',
-              }
-            };
-            addLog(JSON.stringify(requestCon));
-            addLog('CallNativeToast:');
-            window.postMessage(JSON.stringify(requestCon));
-        });
+        $('#toast').on('click', rnToast);
         $('#addMember').on('click', function () {
             var requestCon = {
               actionType:'addMember',
