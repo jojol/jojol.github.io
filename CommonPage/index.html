@@ -26,17 +26,6 @@
 
 <script src="js/jquery-min.js"></script>
 <script type="text/javascript">
-
-    document.addEventListener('message', function(e) {
-    	addLog(e.data+'document');
-      	rnToast('responseConD'+e.data);
-	});
-
-	window.addEventListener('message', function (e) {
-	    addLog(e.data+'window');
-      	rnToast('responseConW'+e.data);
-	});
-
     function rnToast(message='webPage call toast'){
 	    var requestCon = {
 	        actionType:'toast',
@@ -136,19 +125,18 @@
         });
 
         $('#memberManage').on('click', function () {
-      		alert(confirm('memberManage'));
-            // var requestCon = {
-            //   actionType:'selectMember',
-            //   uid:'e925f708e1794adba761071fe4e67b22',
-            //   hospitalId:'1',
-            //   data:{
-            //   	selectMode:2,
-            //     message:'select Memeber',
-            //   }
-            // };
-            // addLog(JSON.stringify(requestCon));
-            // addLog('CallNativeSelectCom:');
-            // window.postMessage(JSON.stringify(requestCon));
+            var requestCon = {
+              actionType:'selectMember',
+              uid:'e925f708e1794adba761071fe4e67b22',
+              hospitalId:'1',
+              data:{
+              	selectMode:2,
+                message:'select Memeber',
+              }
+            };
+            addLog(JSON.stringify(requestCon));
+            addLog('CallNativeSelectCom:');
+            window.postMessage(JSON.stringify(requestCon));
         });
     });
 
@@ -161,22 +149,20 @@
       $("#log").html(mes + '<br /> ' +$("#log").html());
     }
 
-    function rnCallBack2(responseCon){
+    function nativeCallBack(responseCon){
       addLog(responseCon);
+      rnToast(responseCon);
     }
 
-    function rnCallBack(responseCon){
-      addLog(responseCon);
-      alert(confirm(responseCon));
-    }
-    window.nativeCallBack = function(responseCon){
-      addLog(responseCon);
-      alert(confirm(responseCon));
-    }
+//    document.addEventListener('message', function(e) {
+//    	addLog(e.data+'document');
+//      	rnToast('responseConD'+e.data);
+//	});
 
-    document.nativeCallBack = function(responseCon){
-      addLog(responseCon);
-      alert(confirm(responseCon));
-    }
+	// window.addEventListener('message', function (e) {
+	//     addLog(e.data+'window');
+ 	//     rnToast('responseConW'+e.data);
+	// });
+
 </script>
 </html>
