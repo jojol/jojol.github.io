@@ -136,11 +136,14 @@
                 // window.postMessage(JSON.stringify(requestCon));
             });
         });
-        
-        document.addEventListener('message', function(e) {
-        	addLog(e.data);
-          	alert(confirm(responseCon));
-    	});
+
+     //    document.addEventListener('message', function(e) {
+     //    	addLog(e.data);
+     //      	alert(confirm(responseCon));
+    	// });
+    	window.document.addEventListener('message', function (e) {
+		    addLog(e.data);
+		});
 
         function refreshLog(){
           $("#log").html("");
