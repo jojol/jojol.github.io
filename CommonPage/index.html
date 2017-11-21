@@ -29,12 +29,12 @@
 
     document.addEventListener('message', function(e) {
     	addLog(e.data+'document');
-      	alert(confirm(responseCon));
+      	alert('responseConD');
 	});
 	console.log('addEventListener');
 	window.addEventListener('message', function (e) {
 	    addLog(e.data+'window');
-      	alert(confirm(responseCon));
+      	alert('responseConW');
 	});
     function readAsDataURL(){
           // 检查是否为图像类型
