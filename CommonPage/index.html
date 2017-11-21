@@ -26,10 +26,12 @@
 
 <script src="js/jquery-min.js"></script>
 <script type="text/javascript">
+	var messaegId = 1;
     function rnToast(message='webPage call toast'){
 	    var requestCon = {
 	        actionType:'toast',
 	        hospitalId:'1',
+	        messaegId:messaegId++,
 	        data:{
 	          message:'javascript toast',
 	        }
@@ -60,6 +62,7 @@
             var requestCon = {
               actionType:'exitBrowser',
               hospitalId:'1',
+	          messaegId:messaegId++,
               data:{
                 message:'exit browser',
               }
@@ -74,6 +77,7 @@
               actionType:'addMember',
               uid:'e925f708e1794adba761071fe4e67b22',
               hospitalId:'1',
+              messaegId:messaegId++,
               data:{
                 message:'add member',
               }
@@ -86,6 +90,7 @@
             var requestCon = {
               actionType:'userToken',
               hospitalId:'1',
+              messaegId:messaegId++,
               data:{
                 message:'user token',
               }
@@ -100,6 +105,7 @@
               actionType:'selectMember',
               uid:'e925f708e1794adba761071fe4e67b22',
               hospitalId:'1',
+              messaegId:messaegId++,
               data:{
               	selectMode:0,
                 message:'select Memeber',
@@ -114,6 +120,7 @@
               actionType:'selectMember',
               uid:'e925f708e1794adba761071fe4e67b22',
               hospitalId:'1',
+              messaegId:messaegId++,
               data:{
               	selectMode:1,
                 message:'select Memeber',
@@ -129,6 +136,7 @@
               actionType:'selectMember',
               uid:'e925f708e1794adba761071fe4e67b22',
               hospitalId:'1',
+              messaegId:messaegId++,
               data:{
               	selectMode:2,
                 message:'select Memeber',
