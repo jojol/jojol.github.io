@@ -28,12 +28,13 @@
 <script type="text/javascript">
 
     document.addEventListener('message', function(e) {
-    	addLog(e.data);
+    	addLog(e.data+'document');
       	alert(confirm(responseCon));
 	});
 	console.log('addEventListener');
 	window.addEventListener('message', function (e) {
-	    addLog(e.data);
+	    addLog(e.data+'window');
+      	alert(confirm(responseCon));
 	});
     function readAsDataURL(){
           // 检查是否为图像类型
