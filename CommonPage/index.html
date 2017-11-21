@@ -151,12 +151,12 @@
 
     function nativeCallBack(responseCon){
       addLog(responseCon);
-      rnToast(responseCon);
+      // rnToast(responseCon);
     }
 
     document.addEventListener('message', function(e) {
     	addLog(e.data+'document');
-      	rnToast('responseConD'+e.data);
+      	// rnToast('responseConD'+e.data);
 	});
 
 	// window.addEventListener('message', function (e) {
