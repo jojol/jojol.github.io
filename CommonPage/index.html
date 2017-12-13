@@ -37,7 +37,7 @@
 	        }
 	    };
         addLog(JSON.stringify(requestCon));
-        addLog('CallNativeToast:'+ messageId +'visiter:'+ (seagmRN?seagmRN:'undefined'));
+        addLog('CallNativeToast:'+ messageId +'visiter:'+ window.seagmRN);
         window.postMessage(JSON.stringify(requestCon));
     }
 
