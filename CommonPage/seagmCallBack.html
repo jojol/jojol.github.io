@@ -12,10 +12,10 @@
   <p class="text text-1">原生 &nbsp;javaScript &nbsp;互调Demo</p>
   <button id="toast" class="_button _button-1">CallNativeToast</button>
   <button id="userToken" class="_button _button-2 js-test-var" type="button">CallNativeUserToken</button>
-  <button id="addMember" class="_button _button-3">CallNativeAddMember</button>
-  <button id="selectMum" class="_button _button-4 js-test-var" type="button">CallNativeSelectMum</button>
-  <button id="selectCom" class="_button _button-5 js-test-var" type="button">CallNativeSelectCom</button>
-  <button id="memberManage" class="_button _button-6 js-test-var" type="button">CallNativeMemberManager</button>
+  <button id="addMember" class="_button _button-3">CallNativeMember</button>
+  <button id="selectMum" class="_button _button-4 js-test-var" type="button">CallNativeSelect</button>
+  <button id="selectCom" class="_button _button-5 js-test-var" type="button">OpenNewPage</button>
+  <button id="memberManage" class="_button _button-6 js-test-var" type="button">CallNativeManager</button>
   <button id="exitBrowser" class="_button _button-7 js-test-var" type="button">CallExitBrowser</button>
   <input id="selectPic" class="_button _button-8 js-test-var" type="file" accept="image/*" onchange="readAsDataURL()">selectPic</input>
   <img id="picPreView" class="image" src="images/loading_empty.png">
@@ -85,7 +85,6 @@
             addLog(JSON.stringify(requestCon));
             addLog('CallNativeAddMember:');
             window.postMessage(JSON.stringify(requestCon));
-            window.location.href="seagmCallBack.html"; 
         });
         $('#userToken').on('click', function () {
             var requestCon = {
