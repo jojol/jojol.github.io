@@ -97,7 +97,7 @@
             };
             addLog(JSON.stringify(requestCon));
             addLog('paymentCallBack:'+window.seagmRN);
-            window.postMessage(JSON.stringify(requestCon));
+            window.postMessage(JSON.stringify(requestCon),'a');
         });
 
         $('#selectMum').on('click', function () {
