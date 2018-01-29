@@ -13,8 +13,8 @@
   <button id="toast" class="_button _button-1">Seagm</button>
   <button id="userToken" class="_button _button-2 js-test-var" type="button">SeagmHome</button>
   <button id="addMember" class="_button _button-3">SeagmLogin</button>
-  <button id="selectMum" class="_button _button-4 js-test-var" type="button">CallNativeSelectMum</button>
-  <button id="selectCom" class="_button _button-5 js-test-var" type="button">CallNativeSelectCom</button>
+  <button id="selectMum" class="_button _button-4 js-test-var" type="button">SeagmHomeAndroid</button>
+  <button id="selectCom" class="_button _button-5 js-test-var" type="button">SeagmLoginAndroid</button>
   <button id="memberManage" class="_button _button-6 js-test-var" type="button">CallNativeMemberManager</button>
   <button id="exitBrowser" class="_button _button-7 js-test-var" type="button">CallExitBrowser</button>
   <input id="selectPic" class="_button _button-8 js-test-var" type="file" accept="image/*" onchange="readAsDataURL()">selectPic</input>
@@ -70,34 +70,10 @@
         });
 
         $('#selectMum').on('click', function () {
-            var requestCon = {
-              actionType:'selectMember',
-              uid:'e925f708e1794adba761071fe4e67b22',
-              hospitalId:'1',
-              messageId:messageId++,
-              data:{
-              	selectMode:0,
-                message:'select Memeber',
-              }
-            };
-            addLog(JSON.stringify(requestCon));
-            addLog('CallNativeSelectMum:');
-            window.postMessage(JSON.stringify(requestCon));
+            window.location.href="seagm://seagm/home";
         });
         $('#selectCom').on('click', function () {
-            var requestCon = {
-              actionType:'selectMember',
-              uid:'e925f708e1794adba761071fe4e67b22',
-              hospitalId:'1',
-              messageId:messageId++,
-              data:{
-              	selectMode:1,
-                message:'select Memeber',
-              }
-            };
-            addLog(JSON.stringify(requestCon));
-            addLog('CallNativeSelectCom:');
-            window.postMessage(JSON.stringify(requestCon));
+            window.location.href="seagm://seagm/login/success";
         });
 
         $('#memberManage').on('click', function () {
