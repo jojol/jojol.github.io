@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0">
+  <title>index</title>
+  <link rel="stylesheet" href="css/standardize.css">
+  <link rel="stylesheet" href="css/index-grid.css">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body class="body page-index clearfix">
+  <p class="text text-1">原生 &nbsp;javaScript &nbsp;互调Demo</p>
+  <button id="toast" class="_button _button-1">Seagm</button>
+  <button id="userToken" class="_button _button-2 js-test-var" type="button">SeagmHome</button>
+  <button id="addMember" class="_button _button-3">SeagmLogin</button>
+  <button id="selectMum" class="_button _button-4 js-test-var" type="button">CallNativeSelectMum</button>
+  <button id="selectCom" class="_button _button-5 js-test-var" type="button">CallNativeSelectCom</button>
+  <button id="memberManage" class="_button _button-6 js-test-var" type="button">CallNativeMemberManager</button>
+  <button id="exitBrowser" class="_button _button-7 js-test-var" type="button">CallExitBrowser</button>
+  <input id="selectPic" class="_button _button-8 js-test-var" type="file" accept="image/*" onchange="readAsDataURL()">selectPic</input>
+  <img id="picPreView" class="image" src="images/loading_empty.png">
+  <p id="log" class="text text-2">logcon</p>
+
+
+</body>
+
+<script src="js/jquery-min.js"></script>
+<script type="text/javascript">
+	var messageId = 1;
+    function rnToast(message='webPage call toast'){
+	    window.location.href="seagm://toast";
+    }
+
+    function readAsDataURL(){
+          // 检查是否为图像类型
+          var simpleFile = document.getElementById("selectPic").files[0];
+          if(!/image\/\w+/.test(simpleFile.type)) {
+              alert("请确保文件类型为图像类型");
+              return false;
+          }
+          var reader = new FileReader();
+          // 将文件以Data URL形式进行读入页面
+          reader.readAsDataURL(simpleFile);
+          reader.onload = function(e){
+              console.log(this.result);
+              document.getElementById('picPreView').src=this.result;
+          }
+    }
+
+    $(function ($) {
+        $('#exitBrowser').on('click', function () {
+            var requestCon = {
+              actionType:'exitBrowser',
+              hospitalId:'1',
+	          messageId:messageId++,
+              data:{
+                message:'exit browser',
+              }
+            };
+            addLog(JSON.stringify(requestCon));
+            addLog('CallNativeToast:');
+            window.postMessage(JSON.stringify(requestCon));
+        });
+        $('#toast').on('click', rnToast);
+        $('#addMember').on('click', function () {
+            window.location.href="seagm://login/success";
+        });
+        $('#userToken').on('click', function () {
+            window.location.href="seagm://home";
+        });
+
+        $('#selectMum').on('click', function () {
+            var requestCon = {
+              actionType:'selectMember',
+              uid:'e925f708e1794adba761071fe4e67b22',
+              hospitalId:'1',
+              messageId:messageId++,
+              data:{
+              	selectMode:0,
+                message:'select Memeber',
+              }
+            };
+            addLog(JSON.stringify(requestCon));
+            addLog('CallNativeSelectMum:');
+            window.postMessage(JSON.stringify(requestCon));
+        });
+        $('#selectCom').on('click', function () {
+            var requestCon = {
+              actionType:'selectMember',
+              uid:'e925f708e1794adba761071fe4e67b22',
+              hospitalId:'1',
+              messageId:messageId++,
+              data:{
+              	selectMode:1,
+                message:'select Memeber',
+              }
+            };
+            addLog(JSON.stringify(requestCon));
+            addLog('CallNativeSelectCom:');
+            window.postMessage(JSON.stringify(requestCon));
+        });
+
+        $('#memberManage').on('click', function () {
+            var requestCon = {
+              actionType:'selectMember',
+              uid:'e925f708e1794adba761071fe4e67b22',
+              hospitalId:'1',
+              messageId:messageId++,
+              data:{
+              	selectMode:2,
+                message:'select Memeber',
+              }
+            };
+            addLog(JSON.stringify(requestCon));
+            addLog('CallNativeSelectCom:');
+            window.postMessage(JSON.stringify(requestCon));
+        });
+    });
+
+    function refreshLog(){
+      $("#log").html("");
+        // document.getElementById('log').html("修改成的内容");
+    }
+
+    function addLog(mes){
+      $("#log").html(mes + '<br /> ' +$("#log").html());
+    }
+
+    function nativeCallBack(responseCon){
+      addLog(responseCon);
+      // rnToast(responseCon);
+    }
+
+    document.addEventListener('message', function(e) {
+    	addLog(e.data+'document');
+      	// rnToast('responseConD'+e.data);
+	});
+
+	// window.addEventListener('message', function (e) {
+	//     addLog(e.data+'window');
+ 	//     rnToast('responseConW'+e.data);
+	// });
+
+</script>
+</html>
